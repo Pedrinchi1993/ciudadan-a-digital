@@ -3,86 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Micrositio sobre Ciudadanía Digital">
-  <title>Ciudadanía Digital</title>
+  <meta name="description" content="Micrositio sobre Ciudadanía Digital: alfabetización digital, economía colaborativa, derechos digitales y seguridad en línea">
+  <title>Micrositio - Ciudadanía Digital</title>
   <style>
+    :root {
+      --color-primary: #03045e;
+      --color-secondary: #0077b6;
+      --color-accent: #00b4d8;
+      --color-highlight: #ffd60a;
+      --color-background: #f4f6f9;
+      --color-text: #333;
+      --color-white: #ffffff;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: var(--color-background); color: var(--color-text);
       line-height: 1.6;
     }
     header {
-      background: #333;
-      color: #fff;
-      padding: 10px 0;
-      text-align: center;
+      background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+      color: var(--color-white);
+      padding: 2rem; text-align: center;
     }
     nav {
-      margin: 10px 0;
+      background: var(--color-primary);
+      display: flex; justify-content: center; padding: 0.8rem;
+      position: sticky; top: 0; z-index: 100; flex-wrap: wrap;
     }
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #fff;
+      color: var(--color-white); margin: 0 15px; text-decoration: none;
+      font-weight: bold; transition: var(--transition); padding: 0.5rem;
     }
-    section {
-      padding: 20px;
+    nav a:hover, nav a:focus { color: var(--color-highlight); outline: none; }
+    section { padding: 2rem 1rem; max-width: 1000px; margin: auto; scroll-margin-top: 80px; }
+    section h2 { color: var(--color-primary); margin-bottom: 1rem; position: relative; padding-bottom: 0.5rem; }
+    section h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--color-accent); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .card {
+      background: var(--color-white); border-radius: var(--border-radius);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;
+      transition: var(--transition); display: flex; flex-direction: column; height: 100%;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .card-content { padding: 1rem; flex-grow: 1; display: flex; flex-direction: column; }
+    .card p { margin: 0; flex-grow: 1; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--color-primary); color: var(--color-white); padding: 8px; z-index: 1000; text-decoration: none; }
+    .skip-link:focus { top: 0; }
+    footer { background: var(--color-primary); color: var(--color-white); text-align: center; padding: 1.5rem; margin-top: 2rem; }
+    footer a { color: var(--color-highlight); margin: 0 10px; text-decoration: none; transition: var(--transition); }
+    footer a:hover, footer a:focus { text-decoration: underline; outline: none; }
+    .img-container { border-radius: 10px; overflow: hidden; margin-top: 15px; }
+    .img-container img { width: 100%; height: auto; display: block; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
     }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+    @media (max-width: 768px) {
+      nav { flex-direction: column; align-items: center; padding: 0.5rem; }
+      nav a { margin: 5px 0; width: 100%; text-align: center; }
+      section { padding: 1.5rem 1rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      header { padding: 1.5rem 1rem; }
+      section h2 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
   <header>
     <h1>Ciudadanía Digital</h1>
-    <nav>
-      <a href="#alfabetizacion">Alfabetización Digital</a>
-      <a href="#deberes">Deberes Ciudadanos</a>
-      <a href="#links">Enlaces</a>
-    </nav>
+    <p>Apropiación digital en contextos sociales, económicos, culturales y políticos</p>
   </header>
 
-  <section id="alfabetizacion">
-    <h2>Alfabetización Digital</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Digital_literacy.jpg" alt="Alfabetización Digital">
-    <p>
-      La alfabetización digital consiste en la capacidad de utilizar de manera adecuada y responsable las tecnologías de la información. 
-      Incluye habilidades como la búsqueda de información, la comunicación en línea, y la seguridad digital.
-    </p>
-  </section>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#seccion1">Información Digital</a>
+    <a href="#seccion2">Procesos Económicos</a>
+    <a href="#seccion3">Derechos Digitales</a>
+    <a href="#reflexion">Reflexión</a>
+  </nav>
 
-  <section id="deberes">
-    <h2>Deberes Ciudadanos Digitales</h2>
-    <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/social-media-1834011_1280.jpg" alt="Deberes Ciudadanos">
-    <p>
-      Los deberes ciudadanos digitales implican respetar la privacidad de los demás, usar un lenguaje adecuado, 
-      proteger la información personal y contribuir a un ambiente seguro en las plataformas digitales.
-    </p>
-  </section>
+  <main id="main-content">
+    <section id="inicio">
+      <h2>Introducción</h2>
+      <p>
+        La ciudadanía digital es el conjunto de habilidades, valores y prácticas que permiten a los ciudadanos participar de manera activa, responsable y segura en entornos digitales. 
+        En este micrositio exploraremos los conceptos de alfabetización digital, comunicación en línea, economía colaborativa, comercio electrónico, así como la importancia de los derechos digitales 
+        y la seguridad en línea. Esta estructura busca ofrecer una visión integral y práctica de cómo se vive la ciudadanía digital en el día a día.
+      </p>
+      <div class="img-container">
+        <!-- Imagen tomada de Wikimedia Commons -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Man_at_a_laptop_in_an_office_%28Unsplash%29.jpg/960px-Man_at_a_laptop_in_an_office_%28Unsplash%29.jpg" alt="Persona trabajando en un laptop en una oficina">
+      </div>
+    </section>
 
-  <section id="links">
-    <h2>Enlaces de Interés</h2>
-    <ul>
-      <li><a href="https://blogs.iadb.org/educacion/en/digital-citizenship-wikimedia/" target="_blank">Banco Interamericano de Desarrollo - Ciudadanía Digital</a></li>
-      <li><a href="https://unesdoc.unesco.org/ark:/48223/pf0000376935" target="_blank">UNESCO - Ciudadanía Digital</a></li>
-    </ul>
-  </section>
+    <section id="seccion1">
+      <h2>Información Digital</h2>
+      <p>
+        La información digital es la base de la sociedad actual. Ser ciudadano digital implica comprender cómo se produce, distribuye y consume la información en línea. 
+        La alfabetización digital, la comunicación efectiva y la netiqueta son elementos fundamentales para interactuar de forma ética y consciente en el mundo digital.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Man_writing_while_using_his_laptop_1.jpg/960px-Man_writing_while_using_his_laptop_1.jpg" alt="Persona tomando notas frente a un laptop">
+          <div class="card-content">
+            <p><b>Alfabetización digital:</b> conjunto de competencias para buscar, evaluar y crear información usando tecnologías digitales de manera crítica y responsable.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Crowd_of_people_with_phones.jpg/960px-Crowd_of_people_with_phones.jpg" alt="Personas usando smartphones en la calle">
+          <div class="card-content">
+            <p><b>Comunicación:</b> el uso de plataformas digitales nos permite compartir ideas, pero exige responsabilidad en la forma de expresarse y respetar la diversidad cultural.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Digital_media_use.jpg/1024px-Digital_media_use.jpg" alt="Grupo diverso usando dispositivos móviles">
+          <div class="card-content">
+            <p><b>Netiqueta:</b> normas de comportamiento en línea, que incluyen el respeto, la empatía y la claridad en los mensajes que transmitimos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="seccion2">
+      <h2>Procesos Económicos Digitales</h2>
+      <p>
+        La economía digital ha transformado la manera en que consumimos, trabajamos y nos relacionamos económicamente. La economía colaborativa y el comercio electrónico son ejemplos claros 
+        de cómo lo digital impacta nuestra vida diaria, generando nuevas oportunidades pero también retos en términos de regulación, equidad y sostenibilidad.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Man_working_on_laptop_outside_%28Unsplash%29.jpg/960px-Man_working_on_laptop_outside_%28Unsplash%29.jpg" alt="Persona trabajando en laptop en exterior (trabajo flexible)">
+          <div class="card-content">
+            <p><b>Economía colaborativa:</b> modelos como plataformas de trabajo o alojamiento muestran cómo compartir recursos a través de plataformas digitales puede optimizar costos y facilitar acceso.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Digital_media_use.jpg/1024px-Digital_media_use.jpg" alt="Ilustración representando comercio y uso digital">
+          <div class="card-content">
+            <p><b>Comercio electrónico:</b> las compras en línea facilitan el acceso a productos y servicios globales, aunque requieren confianza en la seguridad de las transacciones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="seccion3">
+      <h2>Derechos Digitales y Seguridad en Línea</h2>
+      <p>
+        Los derechos digitales garantizan que las personas puedan desenvolverse libremente en la esfera digital, mientras que la seguridad en línea busca proteger a los usuarios 
+        frente a riesgos como el robo de datos o el ciberacoso. Conocerlos y aplicarlos es indispensable para ser ciudadanos digitales responsables.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/System_Lock_%2866747475%29.jpeg/960px-System_Lock_%2866747475%29.jpeg" alt="Imagen representando un candado y seguridad digital">
+          <div class="card-content">
+            <p><b>Protección de datos:</b> es un derecho fundamental que busca asegurar la privacidad y el control sobre la información personal en internet.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Cybersecurity.png/960px-Cybersecurity.png" alt="Icono/diagrama de ciberseguridad">
+          <div class="card-content">
+            <p><b>Seguridad en línea:</b> medidas y buenas prácticas que permiten proteger cuentas, contraseñas y datos frente a amenazas digitales.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Crowd_of_people_with_phones.jpg/960px-Crowd_of_people_with_phones.jpg" alt="Personas usando tecnología móvil">
+          <div class="card-content">
+            <p><b>Deberes ciudadanos:</b> ejercer nuestros derechos en internet implica también actuar con respeto, legalidad y responsabilidad hacia los demás.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reflexion">
+      <h2>Reflexión Personal</h2>
+      <p>
+        En mi vida diaria aplico estos conceptos al utilizar la tecnología de forma crítica, consciente y responsable.  
+        Entiendo que cada interacción digital refleja mi identidad y valores, por lo que procuro ser respetuoso en la comunicación, proteger mis datos personales, 
+        y participar en iniciativas de economía digital con ética y confianza.  
+        El impacto en mi entorno se refleja en fomentar un uso saludable y seguro de la tecnología, invitando a familiares y amigos a reflexionar sobre el valor de ser 
+        ciudadanos digitales responsables y solidarios.
+      </p>
+      <div class="img-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Man_at_a_laptop_in_an_office_%28Unsplash%29.jpg/960px-Man_at_a_laptop_in_an_office_%28Unsplash%29.jpg" alt="Persona reflexionando frente a un laptop">
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>Autor: PEDRO ANDRES RODRIGUEZ ESPITIA</p>
-    <p>Código: 132779</p>
-    <p>&copy; 2025 Micrositio Ciudadanía Digital</p>
+    <p>Micrositio desarrollado para el Módulo 2 de Ciudadanía Digital - Ejemplo académico</p>
+    <p><b>Autor:</b> PEDRO ANDRES RODRIGUEZ ESPITIA | <b>Código:</b> 132779</p>
+    <p>
+      <a href="https://unesdoc.unesco.org/ark:/48223/pf0000376935" target="_blank" rel="noopener noreferrer">UNESCO</a> | 
+      <a href="https://blogs.iadb.org/educacion/en/digital-citizenship-wikimedia/" target="_blank" rel="noopener noreferrer">BID</a> | 
+      <a href="https://aulas.ecci.edu.co/ova_aulas/ciudadania/unidad2.html" target="_blank" rel="noopener noreferrer">Unidad 2 ECCI</a>
+    </p>
   </footer>
 </body>
 </html>
